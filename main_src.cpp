@@ -1,50 +1,50 @@
+/**
+ *  Author: recker
+ */
 #include <algorithm>
 #include <assert.h>
+#include <cctype>
 #include <cmath>
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
 #include <fstream>
+#include <iomanip>
+#include <iostream>
+#include <limits>
 #include <map>
-#include <regex>
+#include <queue>
 #include <set>
 #include <sstream>
 #include <string>
 #include <time.h>
+#include <utility>
 #include <vector>
-#include <fstream>
-#include <iostream>
-#include <Windows.h>
 using namespace std;
 #pragma warning(disable:4996)
 
-// typedef __int64 int64_t;
-// typedef unsigned __int64 uint64_t;
+namespace {
+typedef long long LL;
+typedef unsigned long long uLL;
 
-#define MAX_LEN          20001
-#define INF              1000000007
+#define EPS        1e-9
+#define INF        1000000007
+#define MAXINT     2147483647
+#define MAXUINT    0xffffffff
+#define FEQ(a, b)  (a - b) < EPS
 
-void GetDirectStrings(const vector<string>& grid, map<int, vector<string> >& candidates) {
-  assert();
-  int height = grid.size();
-  int width  = grid[0].size(); 
-  for ()
+void Str2L(string& val) {
+  transform(val.begin(), val.end(), val.begin(), ::tolower);
 }
 
+void Str2U(string& val) {
+  transform(val.begin(), val.end(), val.begin(), ::toupper);
+}
+
+#define MAXNUM     20001
+} // namespace
+
 int main() {
-  vector<string> grid;
-  int m, n;
-  int k;
-  scanf("%d%d", &m, &n);
-  grid.reserve(m);
-  string line;
-  for (int i = 0; i < m; ++i) {
-    cin >> line;
-    grid.push_back(line);
-  }
-
-  map<int, vector<string> > candidates;
-  GetDirectStrings(grid, candidates);
-
+  
   return 0;
 }
