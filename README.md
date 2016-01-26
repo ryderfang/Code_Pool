@@ -1,3 +1,1 @@
-// It's just some code for my uva & leetcode...
-
- 
+It's just some codes for uva & leetcode. - recker
