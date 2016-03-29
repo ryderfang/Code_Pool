@@ -39,7 +39,17 @@
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
- " => For Chinese Encoding
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => My Conf
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" => Set Startup Dir
+exec 'cd ' . fnameescape('E:\Doc')
+
+" => Show Line Number
+set nu
+
+" => For Chinese Encoding
 if has("multi_byte") 
     " UTF-8 编码 
     set encoding=utf-8 
