@@ -42,16 +42,29 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => My Conf
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Get out of VI's compatible mode..
+set nocompatible
+set fileencoding=cp936
 
-" => Set Startup Dir
+function! MySys()
+if has("win32")
+return "win32"
+elseif has("unix")
+return "unix"
+else
+return "mac"
+endif
+endfunction
+
+" Set Startup Dir
 exec 'cd ' . fnameescape('E:\Doc')
+"set autochdir
 
-" => Show Line Number
+" Show Line Num
 set nu
 
-" => For Chinese Encoding
-if has("multi_byte") 
-    " UTF-8 编码 
+" Chinese Encoding
+if has("multi_byte")
     set encoding=utf-8 
     set termencoding=utf-8 
     set formatoptions+=mM 
@@ -66,6 +79,14 @@ if has("multi_byte")
     endif 
 else 
     echoerr "Sorry, this version of (g)vim was not compiled with +multi_byte" 
+endif
+
+" Font
+if MySys() == 'win32'
+  set guifont=Consolas:h10.5:cANSI
+  set gfw=youyuan:h10:cGB2312
+else 
+  set guifont=Consolas\ 10.5
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
