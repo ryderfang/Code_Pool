@@ -1,21 +1,31 @@
+#include <algorithm>
+#include <cstdio>
+#include <cstring>
 #include <iostream>
 #include <string>
 using namespace std;
 
 class Solution {
     public:
+        Solution(): max_pos_(0),
+                    max_len_(0) {
+        }
+
+        void clear() {
+            max_pos_ = 0;
+            max_len_ = 0;
+        }
+
         // O(n^2)
         string longestPalindrome_1(string s) {
-            if (s.empty()) return "";
-            int start_pos = 0, max_len = 1; 
             int s_sz = s.size();
             // substr's length is odd
             for (int i = 1; i < s_sz - 1; ++i) {
                 int j = 1;
                 while (j <= i && i + j < s_sz && s[i-j] == s[i+j]) ++j; 
-                if (2 * j - 1 > max_len) {
-                    start_pos = i - j + 1;
-                    max_len = 2 * j - 1;
+                if (2 * j - 1 > max_len_) {
+                    max_pos_ = i - j + 1;
+                    max_len_ = 2 * j - 1;
                 }
             }
             // substr's length is even
@@ -25,43 +35,65 @@ class Solution {
                 }
                 int j = 1;
                 while (j <= i && i + 1 + j < s_sz && s[i-j] == s[i+1+j]) ++j;
-                if (2 * j > max_len) {
-                    start_pos = i - j + 1;
-                    max_len = 2 * j;
+                if (2 * j > max_len_) {
+                    max_pos_ = i - j + 1;
+                    max_len_ = 2 * j;
                 }
             }
-            return s.substr(start_pos, max_len);
+            return s.substr(max_pos_, max_len_);
         }
 
-        string longestPalindrome(string s) {
+        // O(nlogn)
+        void get_longest_pali(string s, int off_pos) {
             int s_sz = s.size();
-            int is_odd = s_sz % 2;
-            int mid = (s_sz + 1) / 2;
-            string r_s(s);
-            std::reverse(r_s.begin(), r_s.end());
-            string r_left = r_s.substr(mid - is_odd);
-            string r_right = r_s.substr(0, mid - is_odd);
-
+            if (s_sz < 2 || s_sz <= max_len_) 
+                return;
+            int mid = s_sz >> 1;
             int extend_left[s_sz + 1];
             int extend_right[s_sz + 1]; 
-            // [0..mid]
-            extend_kmp(s.substr(0, mid), r_left, extend_right);
-            extend_kmp(r_left, s.substr(mid), extend_left);
+            string r_s(s);
+            std::reverse(r_s.begin(), r_s.end());
+            // s[mid..sz] ->
+            string s_right = s.substr(mid);
+            extend_kmp(r_s, s_right, extend_left);
+            extend_left[s_sz] = 0;
+            // s[0..mid) <-
+            string s_left = s.substr(0, mid);
+            std::reverse(s_left.begin(), s_left.end());
+            extend_kmp(s, s_left, extend_right);
+            extend_right[s_sz] = 0;
+
             for (int i = 0; i < mid; ++i) {
-               if (extend_right[i] * 2 >= mid - i) {
-                    int len = extend_left[i+1] * 2 + mid - i; 
-                    if (len > max_palin_.size()) {
-                        max_pos_ = i - extend_left[i+1];
-                        max_palin_ = s.substr(max_pos, len); 
+                if (extend_right[i] >= (mid - i) / 2) {
+                    int len = extend_left[s_sz-i] * 2 + mid - i; 
+                    if (len > max_len_) {
+                        max_pos_ = off_pos + i - extend_left[s_sz-i];
+                        max_len_ = len;
                     }
-               }
+                }
             }
-            // [mid+1..sz]
-            extend_kmp(r_right, s.substr(mid), extend_left);
-            extend_kmp(s.substr(mid), r_left, extend_right);
             for (int i = mid; i < s_sz; ++i) {
-                if (extend_left[
+                if (extend_left[s_sz-i] >= (i - mid) / 2) {
+                    int len = extend_right[i] * 2 + i - mid;
+                    if (len > max_len_) {
+                        max_pos_ = off_pos + mid - extend_right[i];
+                        max_len_ = len;
+                    }
+                }
             }
+
+            get_longest_pali(s.substr(0, mid), 0);
+            get_longest_pali(s.substr(mid), mid);
+        }
+
+        string longestPalindrome_2(string s) {
+            get_longest_pali(s, 0);
+            return s.substr(max_pos_, max_len_);
+        }
+
+        // O(n)
+        string longestPalindrome(string s) {
+            
         }
 
     private:
@@ -107,15 +139,35 @@ class Solution {
                 }
             }
         }
-    private:
+
+    public:
         int max_pos_;
 
-        string max_palin_;
+        int max_len_;
 };
 
 int main() {
     Solution sol;
-    cout << sol.longestPalindrome("abafcdgabb") << endl;
+    /*
+    // hdu 3294
+    char a_ch;
+    string old_str;
+    string new_str;
+    while (cin >> a_ch >> old_str) {
+        new_str = old_str;
+        for (int i = 0; i < new_str.size(); ++i) {
+            new_str[i] = 'a' + (26 + new_str[i] - a_ch) % 26;
+        }
+        sol.longestPalindrome_2(new_str);
+        if (sol.max_len_ <= 1) {
+            cout << "No solution!\n";
+        } else { 
+            cout << sol.max_pos_ << " " << sol.max_pos_ + sol.max_len_ - 1 << endl;
+            cout << new_str.substr(sol.max_pos_, sol.max_len_) << endl;
+        }
+        sol.clear();
+    }
+    */
     return 0;
 }
 
