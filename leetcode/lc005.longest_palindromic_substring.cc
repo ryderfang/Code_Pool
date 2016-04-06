@@ -3,6 +3,7 @@
 #include <cstring>
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 class Solution {
@@ -91,23 +92,56 @@ class Solution {
             return s.substr(max_pos_, max_len_);
         }
 
-        // O(n)
+        // Manacher - O(n)
         string longestPalindrome(string s) {
-            
+            // eg. s = abab -> $#a#b#a#b#
+            string mana_s = "^#";
+            for (int i = 0; i < s.size(); ++i) {
+                mana_s.push_back(s[i]);
+                mana_s.push_back('#');
+            }
+            int sz = mana_s.size();
+            // p[i] ±íÊ¾ÒÔiÎªÖÐÐÄµÄ»ØÎÄ´®°ë¾¶³¤(°üÀ¨i)
+            vector<int> p(sz, 0);
+            // [0, i)ÖÐÒÔidÎª`ÖÐÐÄ`µÄ»ØÎÄ´®ÄÜÀ©Õ¹µ½×îÓÒi+p[i]´¦
+            int id = 0;
+            max_pos_ = 0;
+            max_len_ = 0;
+            for (int i = 2; i < sz; ++i) {
+                if (id + p[id] > i) {
+                    p[i] = std::min(p[2*id-i], id + p[id] - i);
+                } else {
+                    p[i] = 1;
+                }
+                while (mana_s[i+p[i]] == mana_s[i-p[i]]) ++p[i];
+                id = (i + p[i] > id + p[id]) ? i : id;
+                if (max_len_ < p[i]) {
+                    max_pos_ = i - p[i] + 1;
+                    max_len_ = p[i];
+                }
+            }
+            string result = mana_s.substr(max_pos_, max_len_ * 2 - 1);
+            if (result[0] == '#') ++max_pos_;
+            max_pos_ = max_pos_ / 2 - 1;
+            // remove_if ²¢²»»áÉ¾³ýºóÃæ¶àÓàµÄ×Ö·û
+            std::remove_if(result.begin(), result.end(), [](char ch) { return ch == '#'; });
+            max_len_ = max_len_ - 1;
+            result = result.substr(0, max_len_);
+            return result;
         }
 
     private:
 
-        // extend[i] -> S[i..n]ä¸ŽTçš„æœ€é•¿å…¬å…±å‰ç¼€ 
+        // extend[i] -> S[i..n]ÓëTµÄ×î³¤¹«¹²Ç°×º 
         void extend_kmp(const string& S, const string& T, int* extend) {
             int t_sz = T.size();
-            // next[i] -> T[i..m]ä¸ŽTçš„æœ€é•¿å…¬å…±å‰ç¼€
+            // next[i] -> T[i..m]ÓëTµÄ×î³¤¹«¹²Ç°×º
             int next[t_sz + 1];  
             next[0] = t_sz; 
             int i = 0;
             while (T[i] == T[i+1] && i + 1 < t_sz) ++i;
             next[1] = i;
-            // p0 -> [1..k-1]ä¸­åŒ¹é…åˆ°æœ€è¿œä½ç½®(next[p0] + p0 - 1)çš„èµ·ç‚¹
+            // p0 -> [1..k-1]ÖÐÆ¥Åäµ½×îÔ¶Î»ÖÃ(next[p0] + p0 - 1)µÄÆðµã
             int p0 = 1;
             for (int k = 2; k < t_sz; ++k) {
                 if (next[k-p0] < next[p0] + p0 - k) {
@@ -117,7 +151,7 @@ class Solution {
                     j = j < 0 ? 0 : j;
                     while (j + k < t_sz && T[j+k] == T[j]) ++j;
                     next[k] = j;
-                    // next[p0] + p0 <= next[k] + k, æ›´æ–°p0
+                    // next[p0] + p0 <= next[k] + k, ¸üÐÂp0
                     p0 = k;
                 }
             }
@@ -146,19 +180,22 @@ class Solution {
         int max_len_;
 };
 
+#define MAXN 200010
+char s[MAXN];
 int main() {
     Solution sol;
-    /*
     // hdu 3294
     char a_ch;
     string old_str;
     string new_str;
-    while (cin >> a_ch >> old_str) {
+    while (scanf("%c %s", &a_ch, s) + 1) {
+        getchar();
+        old_str = s;
         new_str = old_str;
         for (int i = 0; i < new_str.size(); ++i) {
             new_str[i] = 'a' + (26 + new_str[i] - a_ch) % 26;
         }
-        sol.longestPalindrome_2(new_str);
+        sol.longestPalindrome(new_str);
         if (sol.max_len_ <= 1) {
             cout << "No solution!\n";
         } else { 
@@ -167,7 +204,17 @@ int main() {
         }
         sol.clear();
     }
+    // hdu 3068
+    /*
+    while (scanf("%s", s) + 1) {
+        if (strlen(s) == 0) continue;
+        string str = s;
+        sol.longestPalindrome(str);
+        cout << sol.max_len_ << endl;
+        sol.clear();
+    }
     */
+
     return 0;
 }
 
