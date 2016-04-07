@@ -6,12 +6,6 @@
 #include <vector>
 using namespace std;
 
- struct ListNode {
-     int val;
-     ListNode *next;
-     ListNode(int x) : val(x), next(NULL) {}
- };
-
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -41,6 +35,10 @@ public:
             if (prev) prev->next = p_sum;
             else head = p_sum;
             prev = p_sum;
+        }
+        if (carry) {
+            ListNode* p_sum = new ListNode(carry);
+            prev->next = p_sum;
         }
         return head;
     }
