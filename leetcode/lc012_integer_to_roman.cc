@@ -12,7 +12,7 @@ using namespace std;
 class Solution {
 public:
     string intToRoman(int num) {
-        vector<vector<string> > dict = {
+        vector<vector<string> > dict {
             {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"},
             {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"},
             {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"},
