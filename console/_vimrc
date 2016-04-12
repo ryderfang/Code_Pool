@@ -57,8 +57,20 @@ endif
 endfunction
 
 " Set Startup Dir
-exec 'cd ' . fnameescape('E:\Doc')
+exec 'cd ' . fnameescape('E:\Doc\Code_Pool')
 "set autochdir
+
+" With a map leader it's possible to do extra key combinations
+" like <leader>w saves the current file
+let mapleader = ","
+let g:mapleader = ","
+
+" Copy & Paste
+vnoremap <leader>v "+gp
+vnoremap <leader>c "+y
+
+" Edit _vimrc File
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
 
 " Show Line Num
 set nu
@@ -84,7 +96,7 @@ endif
 " Font
 if MySys() == 'win32'
   set guifont=Consolas:h10.5:cANSI
-  set gfw=youyuan:h10:cGB2312
+  "set gfw=YouYuan:h10:cGB2312
 else 
   set guifont=Consolas\ 10.5
 endif
@@ -101,11 +113,6 @@ filetype indent on
 
 " Set to auto read when a file is changed from the outside
 set autoread
-
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
-let mapleader = ","
-let g:mapleader = ","
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -172,7 +179,7 @@ set tm=500
 " Enable syntax highlighting
 syntax enable
 
-colorscheme desert
+colorscheme Tomorrow-Night-Eighties
 set background=dark
 
 " Set extra options when running in GUI mode
