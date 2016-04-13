@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <cstdio>
 #include <cstring>
+#include <functional>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -11,7 +12,9 @@ class Solution {
    vector<vector<int> > threeSum(vector<int>& nums);
 };
 
-vector<vector<int> > Solution::threeSum(vector<int>& nums) {
+// O(n^2)
+/*
+vector<vector<int> > Solution::threeSum_1(vector<int>& nums) {
   vector<vector<int> > ret;
   int len = nums.size();
   if (len < 3) {
@@ -30,7 +33,8 @@ vector<vector<int> > Solution::threeSum(vector<int>& nums) {
 
   // special for 0
   if (nums_count.count(0)) {
-    for (map<int, int>::iterator iter = nums_count.begin(); (iter->first < 0) && (iter != nums_count.end()); ++iter) {
+    for (map<int, int>::iterator iter = nums_count.begin(); 
+         (iter->first < 0) && (iter != nums_count.end()); ++iter) {
       if (nums_count.count(-iter->first)) {
         temp.clear();
         temp.push_back(iter->first);
@@ -49,7 +53,8 @@ vector<vector<int> > Solution::threeSum(vector<int>& nums) {
 
   if (nums_count.size() > 1) {
     map<int, int>::iterator iter_front;
-    for (map<int, int>::iterator iter = nums_count.begin(); (iter->first < 0) && (iter != nums_count.end()); ++iter) {
+    for (map<int, int>::iterator iter = nums_count.begin(); 
+         (iter->first < 0) && (iter != nums_count.end()); ++iter) {
       for (iter_front = iter, ++iter_front; iter_front != nums_count.end(); ++iter_front) {
         if (nums_count.count(-iter->first - iter_front->first)) {
           if (((-iter->first - iter_front->first) == iter_front->first &&
@@ -79,8 +84,31 @@ vector<vector<int> > Solution::threeSum(vector<int>& nums) {
 
   return ret;
 }
+*/
+
+vector<vector<int>> Solution::threeSum(vector<int>& nums) {
+    sort(nums.begin(), nums.end(), less<int>());
+    int sz = nums.size();
+    vector<vector<int> > res;
+    for (int i = 0; i < sz - 2; ++i) {
+        while (i > 0 && i < sz - 2 && nums[i] == nums[i-1]) ++i;
+        int p = i + 1, q = sz - 1;
+        while (p < q) {
+            if (nums[i] + nums[p] + nums[q] == 0) {
+               res.push_back(vector<int>{nums[i], nums[p++], nums[q--]}); 
+               while (nums[p] == nums[p-1] && p < q) ++p;
+               while (nums[q] == nums[q+1] && p < q) --q;
+            } else if (nums[i] + nums[p] + nums[q] < 0) {
+               ++p; 
+            } else --q;
+        }
+    }
+    return res;
+}
 
 int main() {
     Solution sol;
+    vector<int> v{-4, -4, 1, 3};
+    sol.threeSum(v);
     return 0;
 }
