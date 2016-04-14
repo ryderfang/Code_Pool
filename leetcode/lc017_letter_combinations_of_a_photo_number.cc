@@ -13,38 +13,46 @@ using namespace std;
 
 class Solution {
 public:
-    vector<vector<int>> fourSum(vector<int>& nums, int target) {
-        sort(nums.begin(), nums.end(), less<int>());
-        vector<vector<int> > res;
-        int sz = nums.size();
-        for (int i = 0; i < sz - 3; ++i) {
-            if (i != 0 && nums[i] == nums[i-1]) continue;
-            int j = i + 1;
-            for (int j = i + 1; j < sz - 2; ++j) {
-                if (j != i + 1 && nums[j] == nums[j-1]) continue;
-                int p = j + 1, q = sz - 1;
-                while (p < q) {
-                    if (nums[i] + nums[j] + nums[p] + nums[q] == target) {
-                        res.push_back(vector<int>{nums[i], nums[j], nums[p], nums[q]});
-                        ++p;
-                        --q;
-                        while (p < q && nums[p] == nums[p-1]) ++p;
-                        while (p < q && nums[q] == nums[q+1]) --q;
-                    } else if (nums[i] + nums[j] + nums[p] + nums[q] < target) {
-                        ++p;
-                    } else {
-                        --q;
-                    }
-                }
-            }
+    void get_combi(const string& digits, int index, string s, vector<string>& res) {
+        if (index == digits.size()) {
+            res.push_back(s);
+            return;
+        } 
+        string ps = phone[digits[index]];
+        for (const auto& ch : ps) {
+            string t = s;
+            t.append(1, ch);
+            get_combi(digits, index + 1, t, res);
         }
+    }
+
+    vector<string> letterCombinations(string digits) {
+        if (digits.empty()) return vector<string>();
+        for (const auto& ch : digits) {
+            if (!phone.count(ch)) return vector<string>();
+        }
+        vector<string> res;
+        string tmp;
+        get_combi(digits, 0, tmp, res); 
         return res;
     }
+private:
+    static map<char, string> phone;
+};
+
+map<char, string> Solution::phone {
+    {'2', "abc"},
+    {'3', "def"},
+    {'4', "ghi"},
+    {'5', "jkl"},
+    {'6', "mno"},
+    {'7', "pqrs"},
+    {'8', "tuv"},
+    {'9', "wxyz"},
 };
 
 int main() {
     Solution sol;
-    vector<int> nums{1, 0, -1, 0, -2, 2};
-    sol.fourSum(nums, 0);
+    vector<string> res = sol.letterCombinations("");
     return 0;
 }
