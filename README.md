@@ -1,5 +1,5 @@
 # Note
-## My codes for uva & leetcode.
+## My codes for uva & leetcode (and some configs).
 
 * [UVA Home](https://uva.onlinejudge.org/)
 
