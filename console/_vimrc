@@ -57,8 +57,7 @@ endif
 endfunction
 
 " Set Startup Dir
-exec 'cd ' . fnameescape('E:\Doc\Code_Pool')
-"set autochdir
+:cd %:p:h
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
