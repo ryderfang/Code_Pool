@@ -4,8 +4,8 @@
 template <typename T>
 class singleton {
   public:
-    static t& getinstance() {
-      static t instance;
+    static T& GetInstance() {
+      static T instance;
       return instance;
     }
   
@@ -20,9 +20,9 @@ class singleton {
 
 // java中的使用枚举实现的单例（线程安全）- effective java
 public enum singleton {
-  instance;
-  public static singleton getinstance() {
-    return instance; 
+  INSTANCE;
+  public static singleton GetInstance() {
+    return INSTANCE; 
   }
 }
 
