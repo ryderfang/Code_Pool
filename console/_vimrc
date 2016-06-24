@@ -76,6 +76,7 @@ Plugin 'Emmet.vim'
 Plugin 'Shougo/neocomplcache.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'Chiel92/vim-autoformat'
+Plugin 'fatih/vim-go'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -350,7 +351,7 @@ set viminfo^=%
 set laststatus=2
 
 " Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Col:\ %c
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
