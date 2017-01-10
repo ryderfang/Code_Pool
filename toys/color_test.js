@@ -1,5 +1,5 @@
 // http://www.webhek.com/color-test
-// Ò»Ö±ÔËĞĞ°ÉÉÙÄê£¡Èç¹û²»ÅÂ¿¨±¬ä¯ÀÀÆ÷×Ô¼º¼Ó¸öwhile (true)£¬23333
+// ä¸€ç›´è¿è¡Œå§å°‘å¹´ï¼å¦‚æœä¸æ€•å¡çˆ†æµè§ˆå™¨è‡ªå·±åŠ ä¸ªwhile (true)ï¼Œ23333
 var childs = document.getElementById('box').childNodes;
 console.log(childs.length);
 var round = Math.sqrt(childs.length);
