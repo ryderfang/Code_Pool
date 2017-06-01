@@ -24,5 +24,5 @@ class Solution(object):
 # Testcase
 if __name__ == '__main__':
     sol = Solution()
-    lst = [[1, 2, 3], [3, 4, 5]]
-    print(sol.matrixReshape(lst, 3, 2))
+    param = [[1, 2, 3], [3, 4, 5]]
+    print(sol.matrixReshape(param, 3, 2))

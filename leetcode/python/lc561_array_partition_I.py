@@ -15,5 +15,5 @@ class Solution(object):
 # Testcase
 if __name__ == '__main__':
     sol = Solution()
-    lst = [1, 4, 3, 2]
-    print(sol.arrayPairSum(lst))
+    param = [1, 4, 3, 2]
+    print(sol.arrayPairSum(param))
