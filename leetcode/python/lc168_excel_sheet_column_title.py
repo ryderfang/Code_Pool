@@ -15,6 +15,8 @@ class Solution(object):
                 s.append('Z')
                 break;
             s.append(d[n % 26])
+            if n % 26 == 0:
+                n -= 26
             n = n // 26
         s.reverse()
         return "".join(s)
