@@ -41,6 +41,12 @@ def comp_big_int(a, b):
         i += 1
     return 0
 
+# 补码 twos_complement(0xffffffff, 32) => -1
+def twos_complement(input_value, num_bits):
+    '''Calculates a two's complement integer from the given input value's bits'''
+    mask = 2**(num_bits - 1)
+    return -(input_value & mask) + (input_value & ~mask)
+
 class TreeNode(object):
     def __init__(self, x):
         self.val = x
