@@ -63,18 +63,20 @@ def list_to_binary_tree(l):
     while len(queue) > 0 and i < len(l):
         print(queue)
         left = None
-        if i < len(l):
+        if i < len(l) and l[i] != None:
             left = TreeNode(l[i])
         i += 1
         right = None
-        if i < len(l):
+        if i < len(l) and l[i] != None:
             right = TreeNode(l[i])
         i += 1
         queue[0].left = left
         queue[0].right = right
         queue = queue[1:]
-        queue.append(left)
-        queue.append(right)
+        if left != None:
+            queue.append(left)
+        if right != None:
+            queue.append(right)
     return root
 
 # 前序 - 根左右
@@ -123,6 +125,24 @@ def post_order_binary_tree(root):
             stack.append((p.left, False))
     return ans
 
+def level_order_binary_tree(root):
+    ans = []
+    queue = [root]
+    cur = 0
+    end = 1
+    while cur < len(queue):
+        end = len(queue)
+        while cur < end:
+            node = queue[cur]
+            if node != None:
+                ans.append(node.val)
+                if node.left != None:
+                    queue.append(node.left)
+                if node.right != None:
+                    queue.append(node.right)
+            cur += 1
+    return ans
+
 def tree_height(root):
     if root == None:
         return 0
@@ -130,4 +150,5 @@ def tree_height(root):
 
 
 if __name__ == '__main__':
-    pass
+    root = list_to_binary_tree([1,2,None,3,4,5,None,6])
+    ans = level_order_binary_tree(root)
