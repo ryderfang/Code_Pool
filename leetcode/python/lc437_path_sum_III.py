@@ -10,7 +10,11 @@ import copy
 class Solution(object):
     ans = 0
     def find(self, node, sum, pl):
+        '''
         l = copy.deepcopy(pl)
+        <- 深copy超慢!!
+        '''
+        l = copy.copy(pl)
         if node == None:
             return
         csum = node.val
