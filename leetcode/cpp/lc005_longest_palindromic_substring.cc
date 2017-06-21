@@ -101,9 +101,9 @@ class Solution {
                 mana_s.push_back('#');
             }
             int sz = mana_s.size();
-            // p[i] ±íÊ¾ÒÔiÎªÖĞĞÄµÄ»ØÎÄ´®°ë¾¶³¤(°üÀ¨i)
+            // p[i] è¡¨ç¤ºä»¥iä¸ºä¸­å¿ƒçš„å›æ–‡ä¸²åŠå¾„é•¿(åŒ…æ‹¬i)
             vector<int> p(sz, 0);
-            // [0, i)ÖĞÒÔidÎª`ÖĞĞÄ`µÄ»ØÎÄ´®ÄÜÀ©Õ¹µ½×îÓÒi+p[i]´¦
+            // [0, i)ä¸­ä»¥idä¸º`ä¸­å¿ƒ`çš„å›æ–‡ä¸²èƒ½æ‰©å±•åˆ°æœ€å³i+p[i]å¤„
             int id = 0;
             max_pos_ = 0;
             max_len_ = 0;
@@ -123,7 +123,7 @@ class Solution {
             string result = mana_s.substr(max_pos_, max_len_ * 2 - 1);
             if (result[0] == '#') ++max_pos_;
             max_pos_ = max_pos_ / 2 - 1;
-            // remove_if ²¢²»»áÉ¾³ıºóÃæ¶àÓàµÄ×Ö·û
+            // remove_if å¹¶ä¸ä¼šåˆ é™¤åé¢å¤šä½™çš„å­—ç¬¦
             std::remove_if(result.begin(), result.end(), [](char ch) { return ch == '#'; });
             max_len_ = max_len_ - 1;
             result = result.substr(0, max_len_);
@@ -132,16 +132,16 @@ class Solution {
 
     private:
 
-        // extend[i] -> S[i..n]ÓëTµÄ×î³¤¹«¹²Ç°×º 
+        // extend[i] -> S[i..n]ä¸Tçš„æœ€é•¿å…¬å…±å‰ç¼€ 
         void extend_kmp(const string& S, const string& T, int* extend) {
             int t_sz = T.size();
-            // next[i] -> T[i..m]ÓëTµÄ×î³¤¹«¹²Ç°×º
+            // next[i] -> T[i..m]ä¸Tçš„æœ€é•¿å…¬å…±å‰ç¼€
             int next[t_sz + 1];  
             next[0] = t_sz; 
             int i = 0;
             while (T[i] == T[i+1] && i + 1 < t_sz) ++i;
             next[1] = i;
-            // p0 -> [1..k-1]ÖĞÆ¥Åäµ½×îÔ¶Î»ÖÃ(next[p0] + p0 - 1)µÄÆğµã
+            // p0 -> [1..k-1]ä¸­åŒ¹é…åˆ°æœ€è¿œä½ç½®(next[p0] + p0 - 1)çš„èµ·ç‚¹
             int p0 = 1;
             for (int k = 2; k < t_sz; ++k) {
                 if (next[k-p0] < next[p0] + p0 - k) {
@@ -151,7 +151,7 @@ class Solution {
                     j = j < 0 ? 0 : j;
                     while (j + k < t_sz && T[j+k] == T[j]) ++j;
                     next[k] = j;
-                    // next[p0] + p0 <= next[k] + k, ¸üĞÂp0
+                    // next[p0] + p0 <= next[k] + k, æ›´æ–°p0
                     p0 = k;
                 }
             }

@@ -7,7 +7,7 @@
 using namespace std;
 
 const int ascii_count = 256;
-// visited[i] -> ×Ö·ûiÉÏ´Î³öÏÖµÄÎ»ÖÃ
+// visited[i] -> å­—ç¬¦iä¸Šæ¬¡å‡ºç°çš„ä½ç½®
 int visited[ascii_count + 1];
 
 class Solution {
