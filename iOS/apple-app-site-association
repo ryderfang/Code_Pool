@@ -1,0 +1,15 @@
+{
+    "applinks": {
+        "apps": [], 
+        "details": [
+            {
+                "appID": "746845GC96.tv.danmaku.bilianime",
+                "paths": ["*"]
+            },
+            {
+                "appID": "746845GC96.ibili.app.ibiliplayer",
+                "paths": ["*"]
+            }
+        ]
+    }
+}
