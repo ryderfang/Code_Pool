@@ -15,7 +15,9 @@
 <a href="http://d.bilibili.com/download_app.html?preUrl=http%3A%2F%2Fm.bilibili.com%2Fvideo%2Fav8600139.html ">d.bilibili.com</a>
 </br>
 <br>
-<a href="bilibili://video/9">bilibili://video/9</a>
+[bilibili://video/9](bilibili://video/9)
+</br><br>
+[bilibili://mall/web?url=https%3a%2f%2fshow.bilibili.com%2fm%2fplatform%2fhome.html](bilibili://mall/web?url=https%3a%2f%2fshow.bilibili.com%2fm%2fplatform%2fhome.html)
 <br>
 <br>
 <a href="http://live.bilibili.com/AppBanner/index?id=506">live AppBanner</a>
