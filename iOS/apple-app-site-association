@@ -1,15 +1,25 @@
 {
-    "applinks": {
-        "apps": [], 
-        "details": [
-            {
-                "appID": "746845GC96.tv.danmaku.bilianime",
-                "paths": ["*"]
-            },
-            {
-                "appID": "746845GC96.ibili.app.ibiliplayer",
-                "paths": ["*"]
-            }
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "746845GC96.tv.danmaku.bilianime",
+        "paths": [
+          "*"
         ]
-    }
+      },
+      {
+        "appID": "UL9WJVVZ42.ibili.app.ibiliplayer",
+        "paths": [
+          "*"
+        ]
+      },
+      {
+        "appID": "746845GC96.tv.danmaku.bilibilihd",
+        "paths": [
+          "*"
+        ]
+      }
+    ]
+  }
 }
