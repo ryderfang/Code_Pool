@@ -1,9 +1,13 @@
-# Note
-## My codes for uva & leetcode (and some configs).
+## My Code Snippets
+### Algorithm
+> My codes for uva & leetcode.
+ * [UVA Home](https://uva.onlinejudge.org/)
 
-* [UVA Home](https://uva.onlinejudge.org/)
+   This site may be visited very slowly, so instead, I always take this
+   [The Virtual Judge](http://acm.hust.edu.cn/vjudge/problem/toListProblem.action#OJId=UVA&probNum=&title=&source=).
 
-  This site may be visited very slowly, so instead, I always take this
-[The Virtual Judge](http://acm.hust.edu.cn/vjudge/problem/toListProblem.action#OJId=UVA&probNum=&title=&source=).
+ * [LeetCode OJ](https://leetcode.com/problemset/algorithms/ "LeetCode OJ")
 
-* [LeetCode OJ](https://leetcode.com/problemset/algorithms/ "LeetCode OJ")
+### iOS
+
+### Network
