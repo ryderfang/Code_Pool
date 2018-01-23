@@ -1,5 +1,5 @@
 ## My Code Snippets
-### Algorithm
+### algorithm
 > My codes for uva & leetcode.
  * [UVA Home](https://uva.onlinejudge.org/)
 
@@ -8,6 +8,10 @@
 
  * [LeetCode OJ](https://leetcode.com/problemset/algorithms/ "LeetCode OJ")
 
+### dotFiles
+
+* [generate .vimrc](http://www.vim-bootstrap.com/)
+
 ### iOS
 
-### Network
+### network

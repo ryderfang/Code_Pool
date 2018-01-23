@@ -16,6 +16,6 @@ LL fast_exp(LL a, LL e, LL inf) {
       e >>= 1;
     }
   }
-
   return ret;
 }
+
