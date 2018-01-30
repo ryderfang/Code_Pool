@@ -10,6 +10,16 @@
 
 ### dotFiles
 
+直接使用这个现成的吧 : )
+
+* https://github.com/amix/vimrc
+
+  > ```
+  > git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+  > sh ~/.vim_runtime/install_awesome_vimrc.sh
+  > ```
+
+
 * [generate .vimrc](http://www.vim-bootstrap.com/)
 
 ### iOS
