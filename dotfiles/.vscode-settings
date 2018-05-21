@@ -4,33 +4,37 @@
     "editor.fontWeight": "300",
     "editor.tabSize": 4,
     "editor.trimAutoWhitespace": true,
-    "extensions.ignoreRecommendations": false,
     "window.zoomLevel": 0,
     "window.title": "${activeEditorShort}${separator}${rootName} ➠ ${activeEditorLong}",
-    "workbench.startupEditor": "none",
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorCustomizations": {
-        "activityBarBadge.background": "#FF7042",
-        "list.activeSelectionForeground": "#FF7042",
-        "list.inactiveSelectionForeground": "#FF7042",
-        "list.highlightForeground": "#FF7042",
-        "scrollbarSlider.activeBackground": "#FF704250",
-        "editorSuggestWidget.highlightForeground": "#FF7042",
-        "textLink.foreground": "#FF7042",
-        "progressBar.background": "#FF7042",
-        "pickerGroup.foreground": "#FF7042",
-        "tab.activeBorder": "#FF7042"
+    "[html]": {
+        "editor.tabSize": 2,
+        "editor.detectIndentation": false
     },
-    "explorer.confirmDelete": false,
-    "gitlens.advanced.messages": {
-        "suppressCommitHasNoPreviousCommitWarning": false,
-        "suppressCommitNotFoundWarning": false,
-        "suppressFileNotUnderSourceControlWarning": false,
-        "suppressGitVersionWarning": false,
-        "suppressLineUncommittedWarning": false,
-        "suppressNoRepositoryWarning": false,
-        "suppressUpdateNotice": false,
-        "suppressWelcomeNotice": true
+    "[css]": {
+        "editor.tabSize": 2,
+        "editor.detectIndentation": false
     },
-    "vsicons.presets.hideFolders": true,
+    "[javascript]": {
+        "editor.tabSize": 2,
+        "editor.detectIndentation": false
+    },
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "k"],
+            "after": ["<Esc>"]
+        }
+    ],
+    //"merge.company":"Koubei",
+    //"merge.portal": "AlipayMerchant",
+    //"merge.target": "AlipayMerchant",
+    "explorer.confirmDragAndDrop": false,
+    "files.associations": {
+        "*.wxss": "css",
+        "*.mist": "json"
+    },
+    "material-icon-theme.showUpdateMessage": false,
+    "editor.renderControlCharacters": false,
+    "workbench.colorTheme": "Solarized Dark"
 }
+
