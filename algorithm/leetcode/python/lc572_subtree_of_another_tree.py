@@ -36,7 +36,7 @@ class Solution(object):
         return isSame
 
 import sys
-sys.path.append(sys.path[0] + '/../../')
+sys.path.append(sys.path[0] + '/../../../')
 print(sys.path)
 from toys import python_kit
 

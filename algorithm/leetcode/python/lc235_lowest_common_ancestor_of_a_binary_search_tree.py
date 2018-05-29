@@ -32,7 +32,7 @@ class Solution(object):
         return l1[i-1]
 
 import sys
-sys.path.append(sys.path[0] + '/../../')
+sys.path.append(sys.path[0] + '/../../../')
 print(sys.path)
 from toys import python_kit
 

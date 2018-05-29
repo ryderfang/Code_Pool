@@ -125,7 +125,8 @@ def post_order_binary_tree(root):
             stack.append((p.left, False))
     return ans
 
-def level_order_binary_tree(root):
+# 层次遍历
+def level_order_binary_tree(root, show_none=True):
     ans = []
     queue = [root]
     cur = 0
@@ -136,10 +137,23 @@ def level_order_binary_tree(root):
             node = queue[cur]
             if node != None:
                 ans.append(node.val)
+            elif show_none:
+                ans.append(None)
+
+            if node != None:
                 if node.left != None:
                     queue.append(node.left)
+                elif show_none:
+                    queue.append(None)
                 if node.right != None:
                     queue.append(node.right)
+                elif show_none:
+                    queue.append(None)
+
+                # 左右子树都是空，不添加
+                if node.left == None and node.right == None:
+                    queue.pop()
+                    queue.pop()
             cur += 1
     return ans
 
