@@ -121,7 +121,3 @@ stt_title () { setTerminalText 2 $@; }
 
 eval "$(thefuck --alias)"
 
-export GOOGLE_API_KEY="AIzaSyAyr00M3v_USixebulKAWmAZu9k8ZdviXE"
-export GOOGLE_DEFAULT_CLIENT_ID="26229120781-4fqnm29op59k9erj0ad1sgaurer6u2u5.apps.googleusercontent.com"
-export GOOGLE_DEFAULT_CLIENT_SECRET="nOhgmILXrul-p4auc4pT3UHr"
-
