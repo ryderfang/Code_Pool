@@ -2,11 +2,14 @@
     "editor.fontSize": 16,
     "editor.fontFamily": "Source Code Pro",
     "editor.fontWeight": "300",
+    "editor.renderControlCharacters": true,
+    "editor.renderWhitespace": "all",
     "editor.tabSize": 4,
     "editor.trimAutoWhitespace": true,
     "window.zoomLevel": 0,
     "window.title": "${activeEditorShort}${separator}${rootName} ➠ ${activeEditorLong}",
     "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "One Dark Pro Vivid",
     "[html]": {
         "editor.tabSize": 2,
         "editor.detectIndentation": false
@@ -25,16 +28,12 @@
             "after": ["<Esc>"]
         }
     ],
-    //"merge.company":"Koubei",
-    //"merge.portal": "AlipayMerchant",
-    //"merge.target": "AlipayMerchant",
+    "merge.company":"Koubei",
+    "merge.portal": "AlipayMerchant",
+    "merge.target": "AlipayMerchant",
     "explorer.confirmDragAndDrop": false,
     "files.associations": {
         "*.wxss": "css",
         "*.mist": "json"
-    },
-    "material-icon-theme.showUpdateMessage": false,
-    "editor.renderControlCharacters": false,
-    "workbench.colorTheme": "Solarized Dark"
+    }
 }
-

@@ -1,8 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="$PATH:$HOME/.rvm/bin:/opt/local/bin"
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/fangr/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -56,7 +57,6 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -84,7 +84,13 @@ export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#alias python="python3"
+alias python="/usr/local/bin/python3"
+alias python2="/usr/bin/python"
+alias mb="make build"
+alias md="make deploy"
+alias mmp="make open"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -112,3 +118,10 @@ setTerminalText () {
 stt_both  () { setTerminalText 0 $@; }
 stt_tab   () { setTerminalText 1 $@; }
 stt_title () { setTerminalText 2 $@; }
+
+eval "$(thefuck --alias)"
+
+export GOOGLE_API_KEY="AIzaSyAyr00M3v_USixebulKAWmAZu9k8ZdviXE"
+export GOOGLE_DEFAULT_CLIENT_ID="26229120781-4fqnm29op59k9erj0ad1sgaurer6u2u5.apps.googleusercontent.com"
+export GOOGLE_DEFAULT_CLIENT_SECRET="nOhgmILXrul-p4auc4pT3UHr"
+

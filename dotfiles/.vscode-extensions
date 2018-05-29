@@ -1,0 +1,19 @@
+// shift + command + p -> install `code` to PATH
+code --list-extensions | xargs -L 1 echo code --install-extension 
+
+code --install-extension MS-CEINTL.vscode-language-pack-zh-hans
+code --install-extension PKief.material-icon-theme
+code --install-extension Sleen.mist
+code --install-extension abusaidm.html-snippets
+code --install-extension christian-kohler.path-intellisense
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension ecmel.vscode-html-css
+code --install-extension eriklynd.json-tools
+code --install-extension formulahendry.code-runner
+code --install-extension hollowtree.vue-snippets
+code --install-extension markskelton.one-dark-pro-italic
+code --install-extension ms-python.python
+code --install-extension msjsdiag.debugger-for-chrome
+code --install-extension octref.vetur
+code --install-extension ronghui.merge
+code --install-extension vscodevim.vim
