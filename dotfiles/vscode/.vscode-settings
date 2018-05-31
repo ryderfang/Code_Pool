@@ -7,8 +7,7 @@
     "editor.tabSize": 4,
     "editor.trimAutoWhitespace": true,
     "window.zoomLevel": 0,
-    "window.title": "${activeEditorShort}${separator}${rootName} ➠ ${activeEditorLong}",
-    "workbench.iconTheme": "material-icon-theme",
+    "window.title": "🕹 ヽ(〃∀〃)ﾉ ::: ${activeEditorShort}${separator}${rootName} ➠ ${activeEditorLong}",
     "workbench.colorTheme": "One Dark Pro Vivid",
     "[html]": {
         "editor.tabSize": 2,
@@ -35,5 +34,9 @@
     "files.associations": {
         "*.wxss": "css",
         "*.mist": "json"
-    }
+    },
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "gitlens.historyExplorer.enabled": true
 }
