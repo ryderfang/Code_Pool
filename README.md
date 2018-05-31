@@ -22,6 +22,8 @@
 
 * [generate .vimrc](http://www.vim-bootstrap.com/)
 
+* [🙃 emoji list](./dotfiles/emoji-list.md)
+
 ### iOS
 
 ### network
