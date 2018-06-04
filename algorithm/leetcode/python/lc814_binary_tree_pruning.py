@@ -20,11 +20,11 @@ class Solution:
         return root
     
 import sys
-sys.path.append(sys.path[0] + '/../../../')
+sys.path.append(sys.path[0] + '/../../')
 print(sys.path)
-from toys import python_kit
+from common import python_tree
 
 if __name__ == '__main__':
     sol = Solution()
-    t = sol.pruneTree(python_kit.list_to_binary_tree([1,1,0,1,1,0,1,0]))
-    print(python_kit.level_order_binary_tree(t))
+    t = sol.pruneTree(python_tree.list_to_binary_tree([1,1,0,1,1,0,1,0]))
+    print(python_tree.level_order_binary_tree(t))

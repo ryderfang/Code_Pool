@@ -21,11 +21,11 @@ class Solution:
         return t
 
 import sys
-sys.path.append(sys.path[0] + '/../../../')
+sys.path.append(sys.path[0] + '/../../')
 print(sys.path)
-from toys import python_kit
+from common import python_tree
 
 if __name__ == '__main__':
     sol = Solution()
     t = sol.constructMaximumBinaryTree([3, 2, 1, 6, 0, 5])
-    print(python_kit.level_order_binary_tree(t))
+    print(python_tree.level_order_binary_tree(t))

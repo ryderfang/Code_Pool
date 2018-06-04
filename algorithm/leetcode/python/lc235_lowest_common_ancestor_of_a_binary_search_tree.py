@@ -32,12 +32,12 @@ class Solution(object):
         return l1[i-1]
 
 import sys
-sys.path.append(sys.path[0] + '/../../../')
+sys.path.append(sys.path[0] + '/../../')
 print(sys.path)
-from toys import python_kit
+from common import python_tree
 
 if __name__ == '__main__':
     sol = Solution()
-    root = python_kit.list_to_binary_tree([6, 2, 8, 0, 4, 7, 9, None, None, 3, 5])
+    root = python_tree.list_to_binary_tree([6, 2, 8, 0, 4, 7, 9, None, None, 3, 5])
     print(sol.lowestCommonAncestor(root, root.left, root.right))
 
