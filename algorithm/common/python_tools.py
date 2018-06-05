@@ -26,5 +26,6 @@ class Solution:
     @staticmethod
     def alpha_index(ch):
         return ord(ch) - ord('a')
+    
 
     
