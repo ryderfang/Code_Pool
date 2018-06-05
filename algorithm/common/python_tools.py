@@ -22,5 +22,9 @@ class Solution:
     @staticmethod
     def alpha_digit():
         return list(string.ascii_lowercase) + list(map(lambda x: str(x), list(range(0, 10)))) + list(string.ascii_uppercase)
+    # 小写字母的位置
+    @staticmethod
+    def alpha_index(ch):
+        return ord(ch) - ord('a')
 
     
