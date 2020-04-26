@@ -59,7 +59,6 @@ impossible
 
  */
 
-
 //
 // Created by ryderfang on 2020/4/24.
 //
@@ -80,97 +79,131 @@ impossible
 
 using namespace std;
 typedef long long LL;
-const LL MAXN = 100001;
+//const LL MAXN = 100001;
 
-map<string, int> matrix;
-vector<string> record;
+const int min_mat = 123456789;
+map<int, int> matrix;
+queue<int> my_queue;
 LL counter = 0;
-string _op(const string& str, int row, int col) {
-    char cstr[str.size() + 1];
-    strcpy(cstr, str.c_str());
-    if (row >= 0 && row < 3) {
-        char c3 = cstr[row * 3 + 2];
-        cstr[row * 3 + 2] = cstr[row * 3 + 1];
-        cstr[row * 3 + 1] = cstr[row * 3];
-        cstr[row * 3] = c3;
-    } else if (col >= 0 && col < 3) {
-        char c3 = cstr[col + 6];
-        cstr[col + 6] = cstr[col + 3];
-        cstr[col + 3] = cstr[col];
-        cstr[col] = c3;
-    }
-    counter++;
-    return string(cstr);
+
+template<typename T, int N>
+void _round(T (&d)[N], int a, int b, int c) {
+    T temp = d[c];
+    d[c] = d[b];
+    d[b] = d[a];
+    d[a] = temp;
 }
 
-// 超时了，要改用 bfs
-void make_map() {
-    string init = "123456789";
-    matrix[init] = 0;
-    record.push_back(init);
-    int count = 0;
-    const int max_count = 181440;
-    bool has_new = true;
-    while (count < max_count) {
-        has_new = false;
-        string current = record[count];
-        for (int i = 0; i < 3; i++) {
-            string row_res = _op(current, i, -1);
-            if (matrix.count(row_res) == 0) {
-                matrix[row_res] = matrix[current] + 1;
-                record.push_back(row_res);
-                has_new = true;
-            } else {
-                matrix[row_res] = min(matrix[current] + 1, matrix[row_res]);
-            }
+int _op(int t, int row, int col) {
+    int d[10];
+    d[1] = t / 100000000;
+    d[2] = (t / 10000000) % 10;
+    d[3] = (t / 1000000) % 10;
+    d[4] = (t / 100000) % 10;
+    d[5] = (t / 10000) % 10;
+    d[6] = (t % 10000) / 1000;
+    d[7] = (t % 1000) / 100;
+    d[8] = (t % 100) / 10;
+    d[9] = t % 10;
+    int temp;
+    switch (row) {
+        case 0:
+            _round(d, 1, 2, 3);
+            break;
+        case 1:
+            _round(d, 4, 5, 6);
+            break;
+        case 2:
+            _round(d, 7, 8, 9);
+            break;
+    }
+    if (row < 0) {
+        switch (col) {
+            case 0:
+                _round(d, 1, 4, 7);
+                break;
+            case 1:
+                _round(d, 2, 5, 8);
+                break;
+            case 2:
+                _round(d, 3, 6, 9);
+                break;
+        }
+    }
+    int result = 0;
+    int fact = 1;
+    for (int i = 0; i < 9; i++) {
+        result += d[9-i] * fact;
+        fact *= 10;
+    }
+    return result;
+}
 
-            string col_res = _op(current, -1, i);
-            if (matrix.count(col_res) == 0) {
-                matrix[col_res] = matrix[current] + 1;
-                record.push_back(col_res);
-                has_new = true;
-            } else {
-                matrix[col_res] = min(matrix[current] + 1, matrix[col_res]);
+void make_map() {
+    matrix[min_mat] = 0;
+    my_queue.push(min_mat);
+    while (!my_queue.empty()) {
+        int t = my_queue.front();
+        my_queue.pop();
+        for (int i = 0; i < 3; i++) {
+            int row_t = _op(t, i, -1);
+            if (!matrix.count(row_t)) {
+                matrix[row_t] = matrix[t] + 1;
+                my_queue.push(row_t);
+            }
+            int col_t = _op(t, -1, i);
+            if (!matrix.count(col_t)) {
+                matrix[col_t] = matrix[t] + 1;
+                my_queue.push(col_t);
             }
         }
-        count++;
     }
-    printf("\n%d %d!!\n", record.size(), matrix.size());
-    printf("counter: %lld\n", counter);
 }
 
 int main() {
     int T;
     scanf("%d", &T);
     string standard_matrix = "123456789";
-    auto t1 = std::chrono::high_resolution_clock::now();
+//    auto t1 = std::chrono::high_resolution_clock::now();
     make_map();
-    auto t2 = std::chrono::high_resolution_clock::now();
-    auto duration = std::chrono::duration_cast<std::chrono::seconds>( t2 - t1 ).count();
-    printf("cost: %lld s\n", duration);
+//    auto t2 = std::chrono::high_resolution_clock::now();
+//    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>( t2 - t1 ).count();
+    //printf("cost: %lld ms\n", duration);
     while (T--) {
-        string s1, s2, s3;
-        string t1, t2, t3;
-        getchar();
-        cin >> s1 >> s2 >> s3;
-        cin >> t1 >> t2 >> t3;
-        string s = s1 + s2 + s3;
-        string t = t1 + t2 + t3;
-        string target = t;
-        if (s != standard_matrix) {
+        int s1, s2, s3;
+        int t1, t2, t3;
+        scanf("%d %d %d", &s1, &s2, &s3);
+        scanf("%d %d %d", &t1, &t2, &t3);
+        int s = s1 * 1000000 + s2 * 1000 + s3;
+        int t = t1 * 1000000 + t2 * 1000 + t3;
+        if (t != min_mat) {
             map<char, char> convert;
-            for (int i = 0; i < s.length(); i++) {
-                convert[s[i]] = standard_matrix[i];
+            string s_str = to_string(s);
+            string t_str = to_string(t);
+            string min_str = to_string(min_mat);
+            for (int i = 0; i < s_str.length(); i++) {
+                convert[s_str[i]] = min_str[i];
             }
-            for (int i = 0; i < t.length(); i++) {
-                target = target.replace(i, 1, 1, convert[t[i]]);
+            for (int i = 0; i < t_str.length(); i++) {
+                t_str = t_str.replace(i, 1, 1, convert[t_str[i]]);
             }
+            t = std::stoi(t_str);
         }
-        if (matrix.count(target)) {
-            printf("%d\n", matrix[target]);
+        if (matrix.count(t)) {
+            printf("%d\n", matrix[t]);
         } else {
             printf("impossible\n");
         }
     }
 }
+
+/*
+ * 本质是个打表，先用 BFS 搜索所有从标准三阶幻方
+ *          1 2 3
+ *          4 5 6
+ *          7 8 9
+ * 变化能得到的所有可能，共 181440 个。
+ * 对于每一个输入，将初始状态直接映射成标准三阶幻方，然后根据这个映射关系将目标状态映射一下。
+ * 然后查表即可。
+ */
 
