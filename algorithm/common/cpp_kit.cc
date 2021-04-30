@@ -20,9 +20,17 @@ public:
     // 二进制1的个数
     int countOnes(int num) {
         int c = 0;
-        while (num) {
+        while (num != 0) {
             num &= (num - 1);
             c++;
+        }
+        return c;
+    }
+    int countZeros(int num) {
+        int c = 0;
+        while (num + 1) {
+            c++;
+            num |= (num + 1);
         }
         return c;
     }
