@@ -1,7 +1,8 @@
 __pycache__
 .vscode
 *.out
-*.out.dSYM
+*.dSYM/
 *.pyc
 *.txt
+
 
