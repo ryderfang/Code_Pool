@@ -8,6 +8,8 @@
 
  * [LeetCode OJ](https://leetcode.com/problemset/algorithms/ "LeetCode OJ")
 
+    My LeetCode Solutions: https://github.com/ryderfang/LeetCode
+
 ### dotFiles
 
 直接使用这个现成的吧 : )
