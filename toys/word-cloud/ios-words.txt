@@ -1,0 +1,84 @@
+#! 某厂客户端开发 258 篇晋升 PPT 关键词
+
+#T9 (108)
+
+安卓无权限桌面弹框，拉活，触达
+
+
+
+
+#T10 (88)
+
+
+
+#T11 (41)
+
+Flutter，DartNative，Block
+音视频，编码，复用
+渲染引擎，优化，OpenGL，Metal
+QUIC，播放器，SuperPlayer，Andromeda，Cronet，TQuic
+埋点，VideoReporter
+动态化，NativeVue，首屏耗时
+跨平台，网络，线程，XPlatform，MSF
+小程序，二维码，Flutter，Dart
+文档，渲染，排版，数据
+数据模型，架构一体，打包
+X5，浏览器内核，渲染，管线
+AOW，模拟器
+播放器，中台，码率，清晰度
+渲染，贴纸，fusion，LightSDK
+STT，语音转文本，KWS，语音唤醒
+大屏播放器，清晰度，码率，自动化测试，日志
+模块化，解耦，路由，自动化
+PC，RichEdit，布局，绘制，事件，数据驱动，排版
+无障碍化，加载优化，耗时，PSNR，白屏
+符号表，私有函数，模块，基址
+解耦，自动化，安全
+隐私合规，字节码插桩，动态下发
+编译，优化，远程编译
+文件传输，跨平台，解耦
+动态化，Flutter，TDF，渲染引擎，Pipeline
+单测，性能，框架，MVVM，MVI
+直播，中台，视频，播放
+动态化，Flutter，DNFlutter，AST
+架构，高内聚低耦合，编译
+架构，组件化，分层设计，单向依赖，路由，壳工程
+防劣化，质量评估，编译，Bazel，二进制化
+LocalPod，XCRemoteCache，CDN 化
+中台播放器，研效
+线程模型，序列，无锁，跨平台，内核
+数据治理，曝光，点击
+动态化，DSL，响应式，渲染，埋点
+热修复，Tinker，QFix
+内核优化，首屏时间
+Pag，Skia，OpenGL
+Flutter，卡顿，监控
+浏览器内核，内存优化，OOM
+
+#T12 (19)
+
+工业化，解耦，研效，Bazel
+动态化，TDF，Hippy
+红包，CDN，高并发，研效andromeda
+动态化
+启动，性能，DevOps，主干开发
+埋点，AOP，响应式 UI
+Shadow 插件化
+实时音视频，低延迟，监控体系
+浏览器内核，Blink
+小程序，快，大，生态
+SSR，耗时，优化，CSR
+函数式编程，响应式组件化，单测
+DOM，渲染树，布局，事件，动画，数据协议
+文档，架构，OOXML，Bazel
+TDF Core，Dart，MxFlutter，C++，命令式
+AR，Filament，Bullet，PhysX，引擎
+Hippy，TDF，RaftKit
+超高清视频，ThumbPlayer，视频解码，丢帧
+
+#T13 (2)
+
+IL 虚拟机，Flutter，动态化，工业化，组件化，插件化，解耦
+ThumbPlayer，统一框架，组件化，格式解析，数据解码，后处理与渲染
+
+x次5星，x次4星，x次3星

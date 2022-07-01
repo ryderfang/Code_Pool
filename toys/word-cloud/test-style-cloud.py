@@ -16,8 +16,8 @@ def ciyun(fname):
         font_path = 'msyh.ttc',
         palette = 'cartocolors.qualitative.Pastel_7',
         gradient = 'horizontal',
-        icon_name = 'fab fa-weixin',
-        output_name = 'test_ciyun.png')
+        icon_name = 'fas fa-dog',
+        output_name = 'test-style-cloud.png')
 
 def main():
     fname = sys.argv[1]
