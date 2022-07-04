@@ -5,11 +5,90 @@
 安卓无权限桌面弹框，拉活，触达
 
 
-
-
 #T10 (88)
 
-
+解耦，LLVM，Clang LibTooling
+上传组件，超时重传，分片，解耦
+组件化，耦合，滥用反射
+响应式，统一数据，布局，弹幕，双线程
+Flutter，Hook
+OpenGL，GLDrawable
+音视频，颜色，实时图像处理
+富文本渲染，TextKit，YYKit
+热加载，TCP/USB，Swift
+Hippy，NativeVue，调试，usbmuxd
+图片加载，OpenGL，表情包，Flutter
+SuperPlayer，预加载，耗时优化
+热加载，Injectioniii，Clang，LLVM，Bitcode
+音视，动画，PAG
+硬编码，全链路优化
+SDK，业务定制，组件化，标准化，动态化，解耦，路由，数据驱动
+渲染，纹理复用，PAG
+离线包，更新
+插件预加载，Shadow，音频
+渲染链，滤镜，数据驱动，性能优化
+MxFlutter
+播放，渲染，预加载，组件
+动态化，Hippy，调试
+组件化，独立编译，复用，接口，测试
+视频通话，SVC，时域，编码
+CrossEngine，UE，FBO
+Hippy，动态绑定
+下载优化，CDN，QUIC
+逆向，黑产
+数据埋点，上报，大同SDK
+Flutter，热更新，亚秒级，异常监控
+跨平台，Electron，C++ addon
+多语言，输入法
+小游戏，Unity，沙盒，安全性
+编译耗时，clang，dyld，pod
+Crash，堆栈分析
+首帧速度，直播，CDN
+加载优化，绘制，布局，资源，线程，秒开，推荐重排
+CrossEngine，Metal
+直播，P2P，HLS
+CrossEngine，资源加载，换装，动画复用
+文字排版，Layout，全链接，分层优化
+渲染链，GPUImage，LightSDK
+视频通话，弱网，分辩率，性能，音画同步
+内存监控，APM，拦截请求
+消息处理，生产者消费者，数据库，拉取时机
+Bugly，ANR，组件化，解耦
+Doc，文档，分段加载，性能
+APM，堆栈，性能，卡顿
+SDK，黑产，反调试
+组件化，耦合，服务依赖注入，插件化，路由
+Flutter，手势，TDF
+UE，引擎，framework，离屏录制
+优化，耗时，TEXT 段，图片加载
+显存分配，检测，GAPII Hook
+音视频通话，表情驱动
+研发模式，DevOps
+编译优化，沙盒
+录屏，GPU，APNG，解码
+LightSDK，美颜
+Hippy，DSL，可视化埋点
+音频内录，视频播放
+终端 Replay，Flutter
+3D，人脸，特效
+材质，Shader，资源
+Xcode，Kotlin Native，KMM
+播放，字幕，解耦，轨道分离
+模块依赖，解耦，IWYU，重复符号
+MxFlutter，Dart，JS
+LightSDK，脚本，绑定
+组件化编译，插件化
+MxFlutter，JSRuntime，符号源码调试切换
+性能测试，监控
+实时，音视频，丢包，抖动，时延
+音视频，内存优化，画中画
+资源发布，SDK，更新，差量
+App Bundle，组件动态化，数据治理
+虚拟应用，Hook，多进程
+算子，TNN，模型量化，人脸检测
+支付链路优化，安全，加密
+内存监控，卡顿监控，音视频
+逆向，_TEXT 段减包，音频拟合
 
 #T11 (41)
 
