@@ -8,12 +8,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerline"
-POWERLINE_HIDE_HOST_NAME="true"
-POWERLINE_PATH="short"
-POWERLINE_RIGHT_A="date"
-POWERLINE_RIGHT_A_COLOR_FRONT="black"
-POWERLINE_RIGHT_A_COLOR_BACK="red"
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -93,20 +88,15 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias python="/usr/local/bin/python3"
+alias python2="/usr/bin/python"
 alias mmp="open *.xcworkspace"
-alias pj="open *.xcodeproj"
 alias pq="open QQMSFContact.xcworkspace"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-# export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
-
-# cd "$(brew --repo)"
-# git remote set-url origin https://mirrors.tencent.com/homebrew/brew.git
-# cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"
-# git remote set-url origin https://mirrors.tencent.com/homebrew/homebrew-core.git
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.cloud.tencent.com/homebrew-bottles
+export PATH="$PATH:$HOME/.rvm/bin"
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
 #alias for cnpm
 alias cnpm="npm --registry=https://registry.npm.taobao.org \
@@ -116,10 +106,8 @@ alias cnpm="npm --registry=https://registry.npm.taobao.org \
 
 #alias for tnpm
 alias tnpm="npm --registry https://mirrors.tencent.com/npm/"
-
 #alias for pod to fix M1 install problem
 alias pod='arch -x86_64 pod'
-
 # set tab title to cwd
 precmd () {
   echo -ne "\033]2;⚠️  (,,•́ . •̀,,) 🔫  biubiubiu ヽ(〃∀〃)ﾉ \007"
@@ -137,15 +125,11 @@ stt_both  () { setTerminalText 0 $@; }
 stt_tab   () { setTerminalText 1 $@; }
 stt_title () { setTerminalText 2 $@; }
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+set clipboard=unnamed
 
 export MonkeyDevPath=/opt/MonkeyDev
 export MonkeyDevDeviceIP=
 
-eval "$(rbenv init - zsh)"
-export USE_SEED_INDEPENDENT_REPO=1
 
 # Deduplicate path variables
 get_var () {
